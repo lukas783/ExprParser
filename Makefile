@@ -12,7 +12,7 @@ LINK = javac
 
 # Any weird flags ( -O2/-O3/-Wno-deprecated-gpu-targets/-fopenmp/etc)
 FLAGS = -d ./ -cp src
-DOCFLAGS = -d ./doc/ -author
+DOCFLAGS = -d ./doc/ -private -splitindex -author -version -use
 all: Parser
 
 Parser: src/Parser.java src/Evaluator.java
@@ -20,5 +20,6 @@ Parser: src/Parser.java src/Evaluator.java
 
 docs: src/Parser.java src/Evaluator.java
 	javadoc $(DOCFLAGS) $^
+	
 clean: 
 	rm -f *.class *.html *.css *.js package-list *~ core
